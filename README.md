@@ -1,1 +1,1 @@
-# Perceptron Branch Prediciton Within Marie Architecture
+# Perceptron Branch Prediction Within Marie Architecture
