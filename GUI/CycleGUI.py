@@ -12,17 +12,35 @@ class CycleGUI:
         ICframe.grid(column=col, row=row, columnspan = cspan, rowspan = rspan,
                      sticky=(N, W, E, S))
         
-        fetch = StringVar()
-        decode = StringVar()
-        execute = StringVar()
+        self.fetch = StringVar()
+        self.decode = StringVar()
+        self.execute = StringVar()
         
-        ttk.Label(ICframe, text="Fetch", width = 20).grid(column=1, row=0)
-        ttk.Label(ICframe, text="Decode", width = 20).grid(column=2, row=0)
-        ttk.Label(ICframe, text="Execute", width = 20).grid(column=3, row=0)
+        ttk.Label(ICframe, text="Fetch", width = 20).grid(column=1, row=0, padx = 5)
+        ttk.Label(ICframe, text="Decode", width = 20).grid(column=2, row=0, padx = 5)
+        ttk.Label(ICframe, text="Execute", width = 20).grid(column=3, row=0, padx = 5)
         
-        ttk.Label(ICframe, textvariable=fetch, background = 'white').grid(
+        ttk.Label(ICframe, textvariable=self.fetch, background = 'white').grid(
             column=1, row=1, sticky=(W, E), padx = 5)
-        ttk.Label(ICframe, textvariable=decode, background = 'white').grid(
+        ttk.Label(ICframe, textvariable=self.decode, background = 'white').grid(
             column=2, row=1, sticky=(W, E), padx = 5)
-        ttk.Label(ICframe, textvariable=execute, background = 'white').grid(
+        ttk.Label(ICframe, textvariable=self.execute, background = 'white').grid(
             column=3, row=1, sticky=(W, E), padx = 5)
+        
+    def set_fetch(self, new_value):
+        try:
+            self.fetch.set(new_value)
+        except ValueError:
+            self.fetch.set("value error")  
+            
+    def set_decode(self, new_value):
+        try:
+            self.decode.set(new_value)
+        except ValueError:
+            self.decode.set("value error")  
+            
+    def set_execute(self, new_value):
+        try:
+            self.execute.set(new_value)
+        except ValueError:
+            self.execute.set("value error") 

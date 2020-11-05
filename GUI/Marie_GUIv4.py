@@ -1,3 +1,5 @@
+# TODO: Complete run and step function calls to the backend in ActionGUI
+
 from tkinter import *
 from tkinter import ttk
 from tkinter import font
@@ -32,9 +34,6 @@ ActionGUI(mainframe, 1, 1, 1, 1)
 
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)
-
-
-
 
 
 root.mainloop()
