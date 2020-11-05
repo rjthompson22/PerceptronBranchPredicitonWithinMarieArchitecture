@@ -17,12 +17,12 @@ root.columnconfigure(5, weight=1)
 root.columnconfigure(6, weight=1)
 root.rowconfigure(0, weight=1)	
 
-ttk.Label(mainframe, text="                                 ").grid(column=2, row=1)
+#ttk.Label(mainframe, text="                                 ").grid(column=2, row=1)
 highlightFont = font.Font(family='Helvetica', size=12, weight='bold')
 
 #MARIE Instructions
 Instframe = ttk.Frame(mainframe, padding="3 3 12 12")
-Instframe.grid(column=0, row=0, sticky=(N, W, E, S), columnspan = 2)
+Instframe.grid(column=0, row=0, sticky=(N, W, E, S), rowspan = 2)
 ttk.Label(Instframe, text="Main Memory", font = highlightFont).grid(column=1, row=1, columnspan = 2)
 I0 = StringVar()
 I1 = StringVar()
@@ -54,8 +54,8 @@ for i, k in enumerate(instructions):
 
 #MARIE Registers
 Regframe = ttk.Frame(mainframe, padding="3 3 12 12")
-Regframe.grid(column=2, row=0, sticky=(N, W, E, S), columnspan = 2)
-ttk.Label(Regframe, text="CPU State", font = highlightFont).grid(column=0, row=0, columnspan = 2)
+Regframe.grid(column=1, row=0, sticky=(N, W, E, S))
+ttk.Label(Regframe, text="CPU State", font = highlightFont).grid(column=0, row=0)
 PC = StringVar()
 IR = StringVar()
 MAR = StringVar()
@@ -98,7 +98,7 @@ ttk.Label(Regframe, text="Output").grid(column=REG_C, row=7, sticky=E)
 
 #Instruction Cycle
 ICframe = ttk.Frame(mainframe, padding="3 3 12 12")
-ICframe.grid(column=0, row=1, sticky=(N, W, E, S), columnspan = 4)
+ICframe.grid(column=0, row=5, sticky=(N, W, E, S), columnspan = 4)
 
 fetch = StringVar()
 decode = StringVar()
@@ -112,9 +112,23 @@ ttk.Label(ICframe, textvariable=decode, background = 'white').grid(column=2, row
 ttk.Label(ICframe, textvariable=execute, background = 'white').grid(column=3, row=1, sticky=(W, E), padx = 5)
 
 
+#Buttons to run the program
+Runframe = ttk.Frame(mainframe, padding="3 3 12 12")
+Runframe.grid(column=1, row=1, sticky=(N, W, E, S))
+
+RunComplete = ttk.Button(Runframe, text='Run')
+RunComplete.grid(column=0, row = 0)
+
+RunStep = ttk.Button(Runframe, text='Step')
+RunStep.grid(column=0, row = 1)
+
+
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=5)
 PC_entry.focus()
+
+
+
 
 
 root.mainloop()
