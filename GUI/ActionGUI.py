@@ -7,7 +7,9 @@ from InstructionGUI import *
 
 class ActionGUI:
 #GUI for the main memory of the marie architecture, where the user writes code
-
+    
+    def ShowChoice():
+        pass
     
 
     def __init__(self, root, col, row, cspan=1, rspan=1):
@@ -28,6 +30,9 @@ class ActionGUI:
         RunStep = ttk.Button(Runframe, text='Step', command = self.step)
         RunStep.grid(column=0, row = 1, columnspan = 2)
         
+        
+    
+    
     
     def set_status(self, status_update):
         
@@ -41,3 +46,6 @@ class ActionGUI:
     
     def step(self):
         pass
+    
+    def ShowChoice():
+        print(v.get())

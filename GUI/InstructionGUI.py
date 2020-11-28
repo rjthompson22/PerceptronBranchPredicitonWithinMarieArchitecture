@@ -56,8 +56,9 @@ class InstructionGUI:
         I9_entry = ttk.Entry(Instframe, width=20, textvariable=self.instructions[9])
         I9_entry.grid(column=2, row=11, sticky=(W, E), columnspan = 2)
 
+
         for i, k in enumerate(self.instructions):
-            label = "Instruction " + str(i) + ":"
+            label = "Instruction " + str(i+1) + ":"
             ttk.Label(Instframe, text=label).grid(column=1, row=i+2, sticky=E)
             
             
