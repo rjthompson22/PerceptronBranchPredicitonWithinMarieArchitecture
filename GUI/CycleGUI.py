@@ -35,11 +35,11 @@ class CycleGUI:
         
         #Pipelined Display
         self.pipeline_disp = ttk.Frame(self.ICframe)
-        x_labels = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"]
-        y_labels = ["I1", "I2", "I3", "I4", "I5", "I6", "I7", "I8", "I9"]
+        x_labels = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10"]
+        y_labels = ["I1", "I2", "I3", "I4", "I5", "I6", "I7", "I8", "I9", "I10"]
         row_entries = [StringVar(),StringVar(),StringVar(),StringVar(),
                         StringVar(),StringVar(),StringVar(),StringVar(),
-                        StringVar()]
+                        StringVar(), StringVar()]
         self.rows = []
         for i in range(10):
             self.rows.append(row_entries)
@@ -48,16 +48,16 @@ class CycleGUI:
         self.Y = []
         self.XY = []
         
-        for i in range(9):
+        for i in range(10):
             self.X.append(ttk.Label(self.pipeline_disp, text = x_labels[i], width = 5))
             self.Y.append(ttk.Label(self.pipeline_disp, text = y_labels[i]))
             self.XY.append([ttk.Label(self.pipeline_disp, textvariable = self.rows[i][j], 
                                       background = 'white', width = 5, borderwidth="2", relief="groove")
-                            for j in range(9)])
-        for i in range(9):
+                            for j in range(10)])
+        for i in range(10):
             self.X[i].grid(column = 1+i, row = 1, sticky = (W))
             self.Y[i].grid(column = 0, row = 2+i)
-            for j in range(9):
+            for j in range(10):
                 self.XY[i][j].grid(column = 1+i, row = 2+j)
         
         self.default_disp.grid(column = 0, row = 1, columnspan = 3)
@@ -85,7 +85,7 @@ class CycleGUI:
         self.default_disp.grid(column = 0, row = 1, columnspan = 3)
         
     def disp_pipeline(self):
-        self.pipeline_disp.grid(column = 0, row = 1, columnspan = 3)
+        self.pipeline_disp.grid(column = 0, row = 1, columnspan = 3, sticky = 'ew')
         
     def disp_change(self):
         if (self.v.get() == 0):
@@ -116,6 +116,7 @@ class CycleGUI:
             
 
     def set_XY(self, new_value):
+        #new_value input needs to be a 9x9 array
         try:
             for i in range(10):
                 for j in range(10):

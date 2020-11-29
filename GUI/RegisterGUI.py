@@ -12,7 +12,6 @@ class RegisterGUI:
         Regframe = ttk.Frame(root, padding="3 3 12 12")
         Regframe.grid(column=col, row=row, columnspan = cspan, rowspan = rspan, 
                       sticky=(N, W, E, S))
-        ttk.Label(Regframe, text="CPU State", font = highlightFont).grid(column=0, row=0)
         
         self.PC = StringVar()
         self.IR = StringVar()

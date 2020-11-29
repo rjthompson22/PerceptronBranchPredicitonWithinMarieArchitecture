@@ -17,7 +17,7 @@ class ActionGUI:
         #Buttons to run the program
         Runframe = ttk.Frame(root, padding="3 3 12 12")
         Runframe.grid(column=col, row=row, columnspan = cspan, rowspan = rspan, 
-                      sticky=(N, W, E, S))
+                      sticky=(N, W, E))
         
         self.status = StringVar()
         ttk.Label(Runframe, text="System Status: ").grid(column=0, row=2, pady = 5, sticky = (E))      
